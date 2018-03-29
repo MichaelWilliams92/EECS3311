@@ -1,0 +1,206 @@
+{\rtf1\ansi\ansicpg1252\deflang1033{\fonttbl{\f0\fscript\fcharset0 Courier;}}{\colortbl ;\red0\green0\blue0;\red255\green255\blue255;\red128\green0\blue0;\red0\green0\blue255;\red0\green128\blue0;\red0\green0\blue128;}
+{\cf3\f0\fs16 {\tab}{\tab}{\tab}-- Automatic generation produced by ISE Eiffel --
+{\line}
+{{\b\cf6 note}{\line}
+{\tab}{\cf1 description}{\cf1 :} "[{\line}
+{\tab}{\tab}		(1) A Bank consists of many customers.{\line}
+{\tab}{\tab}		There are {\cf5 count} customers.{\line}
+{\tab}{\tab}		(2) New customers can be added to the bank by name.{\line}
+{\tab}{\tab}		    We never delete a customer record, {\line}
+{\tab}{\tab}		    even after they leave the bank.{\line}
+{\tab}{\tab}		(3) Each customer shall have a single account at the bank.{\line}
+{\tab}{\tab}		    Initially the balance in the account is zero.{\line}
+{\tab}{\tab}		(4) Money can be deposited to and withdrawn from customer accounts.{\line}
+{\tab}{\tab}		    Money is deposited as a dollar amount, {\line}
+{\tab}{\tab}		    perhaps with more than two decimal places.{\line}
+{\tab}{\tab}		(5) Money calculations shall be precise {\line}
+{\tab}{\tab}		  (e.g. adding, subtracting and multiplying {\line}
+{\tab}{\tab}		  money amounts must be without losing pennies or parts of pennies).{\line}
+{\tab}{\tab}		(6) Money can also be transferred between two customer accounts.{\line}
+{\tab}{\tab}		(7) Balances in accounts shall never be negative.{\line}
+{\tab}{\tab}		(8) Customers are identified by name, {\line}
+{\tab}{\tab}		    so there cannot be two customers having the same name.	  {\line}
+{\tab}{\tab}		(9) Customers are stored in a list sorted alpahabetically by name.{\line}
+{\tab}{\tab}		(11) The bank has an attribute {\cf5 total} that stores the total{\line}
+{\tab}{\tab}			of all the balances in the various customer accounts.{\line}
+{\tab}{\tab}			This can be used to check for fraud.{\line}
+{\tab}{\tab}			{\line}
+{\tab}{\tab}			-----------------------------------------{\line}
+{\tab}{\tab}			You will see '--Todo' whereyou must revise{\line}
+{\tab}{\tab}			-----------------------------------------{\line}
+{\tab}{\tab}{\line}
+{\tab}]"{\line}
+{\tab}{\cf1 author}{\cf1 :} "JSO"{\line}
+{\tab}{\cf1 date}{\cf1 :} "$Date$"{\line}
+{\tab}{\cf1 revision}{\cf1 :} "$Revision$"{\line}
+{\line}
+{\b\cf6 class} {\b\cf6 interface}{\line}
+{\tab}{\cf4 BANK}{\line}
+{\line}
+{\b\cf6 create} {\line}
+{\tab}{\cf5 make}{\line}
+{\line}
+{\b\cf6 feature} {\cf3 --}{\cf3  bank attributes}{\line}
+{\cf3 --}{\cf3  don't change the bank attributes}{\line}
+{\line}
+{\tab}{\cf5 {\cf5 zero}{\cf1 :} {\cf4 VALUE}}{\line}
+{\line}
+{\tab}{\cf5 {\cf5 one}{\cf1 :} {\cf4 VALUE}}{\line}
+{\line}
+{\tab}{\cf5 {\cf5 count}{\cf1 :} {\cf4 INTEGER_32}}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  total number of bank customers}{\line}
+{\line}
+{\tab}{\cf5 {\cf5 total}{\cf1 :} {\cf4 VALUE}}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  total of all the balances in the customers accounts}{\line}
+{\line}
+{\tab}{\cf5 {\cf5 customers}{\cf1 :} {\cf4 LIST} {\cf1 [}{\cf4 CUSTOMER}{\cf1 ]}}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  list of all bank customers}{\line}
+{\tab}{\line}
+{\b\cf6 feature} {\cf3 --}{\cf3  Commands using a single account}{\line}
+{\cf3 --}{\cf3  do not change the precondition and postcondition tags}{\line}
+{\cf3 --}{\cf3  you may change the part of the contract that comes after the tag}{\line}
+{\cf3 --}{\cf3  you ma change the routine implemementations}{\line}
+{\line}
+{\tab}{\cf5 {\cf5 new} {\cf1 (}{\cf5 name1}{\cf1 :} {\cf4 STRING_8}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  Add a new customer named 'name1'}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  to the end of list }{\cf5 customers}{\line}
+{\tab}{\tab}{\b\cf6 require}{\line}
+{\tab}{\tab}{\tab}{\cf1 customer_not_already_present}{\cf1 :} {\b\cf6 not} {\cf5 customer_exists}{\cf1  }{\cf1 (}{\cf5 name1}{\cf1 )}{\line}
+{\tab}{\tab}{\b\cf6 ensure}{\line}
+{\tab}{\tab}{\tab}{\cf1 total_balance_unchanged}{\cf1 :} {\cf5 sum_of_all_balances} {\cf1 =} {\b\cf6 old} {\cf5 sum_of_all_balances}{\line}
+{\tab}{\tab}{\tab}{\cf1 num_customers_increased}{\cf1 :} {\cf5 count} {\cf1 =} {\b\cf6 old} {\cf5 count} {\cf1 +} 1{\line}
+{\tab}{\tab}{\tab}{\cf1 total_unchanged}{\cf1 :} {\cf5 total} {\cf1 =} {\b\cf6 old} {\cf5 total}{\line}
+{\tab}{\tab}{\tab}{\cf1 customer_added_to_list}{\cf1 :} {\cf5 customer_exists}{\cf1  }{\cf1 (}{\cf5 name1}{\cf1 )} {\b\cf6 and then} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 name1}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 name} {\cf1 ~} {\b\cf6 create} {\cf1 \{}{\cf4 IMMUTABLE_STRING_8}{\cf1 \}}{\b\cf1 .}{\cf5 make_from_string}{\cf1  }{\cf1 (}{\cf5 name1}{\cf1 )} {\b\cf6 and then} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 name1}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 balance} {\cf1 ~} {\cf5 zero}{\line}
+{\tab}{\tab}{\tab}{\cf1 other_customers_unchanged}{\cf1 :} {\b\cf6 True}{\line}
+{\tab}{\tab}{\tab}{\tab}{\cf5 customers_unchanged_other_than}{\cf1  }{\cf1 (}{\cf5 name1}{\cf1 ,} {\b\cf6 old} {\cf5 customers}{\b\cf1 .}{\cf5 deep_twin}{\cf1 )}{\line}
+}{\line}
+{\tab}{\cf5 {\cf5 deposit} {\cf1 (}{\cf5 a_name}{\cf1 :} {\cf4 STRING_8}{\cf1 ;} {\cf5 a_value}{\cf1 :} {\cf4 VALUE}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  Deposit an amount of 'a_value' into account owned by 'a_name'.}{\line}
+{\tab}{\tab}{\b\cf6 require}{\line}
+{\tab}{\tab}{\tab}{\cf1 customer_exists}{\cf1 :} {\cf5 customer_exists}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\cf1 positive_amount}{\cf1 :} {\cf5 a_value} {\cf1 >} {\cf5 zero}{\line}
+{\tab}{\tab}{\b\cf6 ensure}{\line}
+{\tab}{\tab}{\tab}{\cf1 deposit_num_customers_unchanged}{\cf1 :} {\cf5 count} {\cf1 =} {\b\cf6 old} {\cf5 count}{\line}
+{\tab}{\tab}{\tab}{\cf1 total_increased}{\cf1 :} {\cf5 total} {\cf1 >} {\b\cf6 old} {\cf5 total}{\line}
+{\tab}{\tab}{\tab}{\cf1 deposit_customer_balance_increased}{\cf1 :} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 balance} {\cf1 >} {\b\cf6 old} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 balance}{\line}
+{\tab}{\tab}{\tab}{\cf1 deposit_other_customers_unchanged}{\cf1 :} {\cf5 customers_unchanged_other_than}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 ,} {\b\cf6 old} {\cf5 customers}{\b\cf1 .}{\cf5 deep_twin}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\cf1 total_balance_increased}{\cf1 :} {\cf5 sum_of_all_balances} {\cf1 >} {\b\cf6 old} {\cf5 sum_of_all_balances}{\line}
+}{\line}
+{\tab}{\cf5 {\cf5 withdraw} {\cf1 (}{\cf5 a_name}{\cf1 :} {\cf4 STRING_8}{\cf1 ;} {\cf5 a_value}{\cf1 :} {\cf4 VALUE}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  Withdraw an amount of 'a_value' from account owned by 'a_name'.}{\line}
+{\tab}{\tab}{\b\cf6 require}{\line}
+{\tab}{\tab}{\tab}{\cf1 customer_exists}{\cf1 :} {\cf5 customer_exists}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\cf1 positive_amount}{\cf1 :} {\cf5 a_value} {\cf1 >} {\cf5 zero}{\line}
+{\tab}{\tab}{\tab}{\cf1 sufficient_balance}{\cf1 :} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 balance} {\cf1 -} {\cf5 a_value} {\cf1 >=} {\cf5 zero}{\line}
+{\tab}{\tab}{\b\cf6 ensure}{\line}
+{\tab}{\tab}{\tab}{\cf1 withdraw_num_customers_unchanged}{\cf1 :} {\cf5 customers}{\b\cf1 .}{\cf5 count} {\cf1 =} {\b\cf6 old} {\cf5 customers}{\b\cf1 .}{\cf5 count}{\line}
+{\tab}{\tab}{\tab}{\cf1 total_decreased}{\cf1 :} {\cf5 total} {\cf1 <} {\b\cf6 old} {\cf5 total}{\line}
+{\tab}{\tab}{\tab}{\cf1 withdraw_customer_balance_decreased}{\cf1 :} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 balance} {\cf1 <} {\b\cf6 old} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 balance}{\line}
+{\tab}{\tab}{\tab}{\cf1 withdraw_other_customers_unchanged}{\cf1 :} {\cf5 customers_unchanged_other_than}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 ,} {\b\cf6 old} {\cf5 customers}{\b\cf1 .}{\cf5 deep_twin}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\cf1 total_balance_decreased}{\cf1 :} {\cf5 sum_of_all_balances} {\cf1 <} {\b\cf6 old} {\cf5 sum_of_all_balances}{\line}
+}{\tab}{\line}
+{\b\cf6 feature} {\cf3 --}{\cf3  Command using multiple accounts}{\line}
+{\line}
+{\tab}{\cf5 {\cf5 transfer} {\cf1 (}{\cf5 name1}{\cf1 :} {\cf4 STRING_8}{\cf1 ;} {\cf5 name2}{\cf1 :} {\cf4 STRING_8}{\cf1 ;} {\cf5 a_value}{\cf1 :} {\cf4 VALUE}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  Transfer an amount of 'a_value' from}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  account }`name1'{\cf3  to account }`name2'{\line}
+{\tab}{\tab}{\b\cf6 require}{\line}
+{\tab}{\tab}{\tab}{\cf1 distinct_accounts}{\cf1 :} {\cf5 name1} {\cf1 /~} {\cf5 name2}{\line}
+{\tab}{\tab}{\tab}{\cf1 customer1_exists}{\cf1 :} {\cf5 customer_exists}{\cf1  }{\cf1 (}{\cf5 name1}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\cf1 customer2_exists}{\cf1 :} {\cf5 customer_exists}{\cf1  }{\cf1 (}{\cf5 name2}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\cf1 sufficient_balance}{\cf1 :} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 name1}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 balance} {\cf1 >=} {\cf5 a_value}{\line}
+{\tab}{\tab}{\b\cf6 ensure}{\line}
+{\tab}{\tab}{\tab}{\cf1 same_total}{\cf1 :} {\cf5 total} {\cf1 =} {\b\cf6 old} {\cf5 total}{\line}
+{\tab}{\tab}{\tab}{\cf1 same_count}{\cf1 :} {\cf5 count} {\cf1 =} {\b\cf6 old} {\cf5 count}{\line}
+{\tab}{\tab}{\tab}{\cf1 total_balance_unchanged}{\cf1 :} {\cf5 sum_of_all_balances} {\cf1 =} {\b\cf6 old} {\cf5 sum_of_all_balances}{\line}
+{\tab}{\tab}{\tab}{\cf1 customer1_balance_decreased}{\cf1 :} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 name1}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 balance} {\cf1 <} {\b\cf6 old} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 name1}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 balance}{\line}
+{\tab}{\tab}{\tab}{\cf1 customer2_balance_increased}{\cf1 :} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 name2}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 balance} {\cf1 >} {\b\cf6 old} {\cf5 customers} {\cf1 [}{\cf5 customer_id}{\cf1  }{\cf1 (}{\cf5 name2}{\cf1 )}{\cf1 ]}{\b\cf1 .}{\cf5 balance}{\line}
+{\tab}{\tab}{\tab}{\cf1 other_customers_unchanged}{\cf1 :} {\cf5 customers_unchanged_other_than_both}{\cf1  }{\cf1 (}{\cf5 name1}{\cf1 ,} {\cf5 name2}{\cf1 ,} {\b\cf6 old} {\cf5 customers}{\b\cf1 .}{\cf5 deep_twin}{\cf1 )}{\line}
+}{\tab}{\line}
+{\b\cf6 feature} {\cf3 --}{\cf3  queries for contracts}{\line}
+{\cf3 --}{\cf3  You may find the following queries helpful.}{\line}
+{\cf3 --}{\cf3  Change them as necessary, or add your own}{\line}
+{\cf3 --}{\cf3  if you add your own, contract them, and test them}{\line}
+{\line}
+{\tab}{\cf5 {\cf5 sum_of_all_balances}{\cf1 :} {\cf4 VALUE}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  Summation of the balances in all customer accounts}{\line}
+{\tab}{\tab}{\b\cf6 ensure}{\line}
+{\tab}{\tab}{\tab}{\tab}{\cf5 comment}{\cf1  }{\cf1 (}"Result = (SUM i : 1..count: customers[i].balance)"{\cf1 )}{\line}
+}{\line}
+{\tab}{\cf5 {\cf5 customer_exists} {\cf1 (}{\cf5 a_name}{\cf1 :} {\cf4 STRING_8}{\cf1 )}{\cf1 :} {\cf4 BOOLEAN}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  Is customer }`a_name'{\cf3  in the list?}{\line}
+{\tab}{\tab}{\b\cf6 ensure}{\line}
+{\tab}{\tab}{\tab}{\tab}{\cf5 comment}{\cf1  }{\cf1 (}"EXISTS c in customers: c.name = a_name"{\cf1 )}{\line}
+}{\line}
+{\tab}{\cf5 {\cf5 customer_id} {\cf1 (}{\cf5 a_name}{\cf1 :} {\cf4 STRING_8}{\cf1 )}{\cf1 :} {\cf4 INTEGER_32}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  return index of }`a_name'{\cf3  into customers}{\line}
+}{\line}
+{\tab}{\cf5 {\cf5 customer_with_name} {\cf1 (}{\cf5 a_name}{\cf1 :} {\cf4 STRING_8}{\cf1 )}{\cf1 :} {\cf4 CUSTOMER}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  return customer with name }`a_name'{\line}
+{\tab}{\tab}{\b\cf6 require}{\line}
+{\tab}{\tab}{\tab}{\tab}{\cf5 customer_exists}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 )}{\line}
+{\tab}{\tab}{\b\cf6 ensure}{\line}
+{\tab}{\tab}{\tab}{\cf1 correct_result}{\cf1 :} {\b\cf6 Result}{\b\cf1 .}{\cf5 name} {\cf1 ~} {\b\cf6 create} {\cf1 \{}{\cf4 IMMUTABLE_STRING_8}{\cf1 \}}{\b\cf1 .}{\cf5 make_from_string}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 )}{\line}
+}{\line}
+{\tab}{\cf5 {\cf5 customers_unchanged_other_than} {\cf1 (}{\cf5 a_name}{\cf1 :} {\cf4 STRING_8}{\cf1 ;} {\cf5 old_customers}{\cf1 :} {\b\cf6 like} {\cf5 customers}{\cf1 )}{\cf1 :} {\cf4 BOOLEAN}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  Are customers other than }`a_name'{\cf3  unchanged?}{\line}
+{\tab}{\tab}{\b\cf6 ensure}{\line}
+{\tab}{\tab}{\tab}{\tab}{\b\cf6 Result} {\cf1 =} {\b\cf6 across}{\line}
+{\tab}{\tab}{\tab}{\tab}{\tab}{\cf5 customers} {\b\cf6 as} c{\line}
+{\tab}{\tab}{\tab}{\tab}{\b\cf6 all}{\line}
+{\tab}{\tab}{\tab}{\tab}{\tab}{\cf5 c}{\b\cf1 .}{\cf5 item}{\b\cf1 .}{\cf5 name} {\cf1 /~} {\b\cf6 create} {\cf1 \{}{\cf4 IMMUTABLE_STRING_8}{\cf1 \}}{\b\cf1 .}{\cf5 make_from_string}{\cf1  }{\cf1 (}{\cf5 a_name}{\cf1 )} {\b\cf6 implies} {\cf5 old_customers}{\b\cf1 .}{\cf5 has}{\cf1  }{\cf1 (}{\cf5 c}{\b\cf1 .}{\cf5 item}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\tab}{\b\cf6 end}{\line}
+}{\line}
+{\tab}{\cf5 {\cf5 customers_unchanged_other_than_both} {\cf1 (}{\cf5 a_name1}{\cf1 :} {\cf4 STRING_8}{\cf1 ;} {\cf5 a_name2}{\cf1 :} {\cf4 STRING_8}{\cf1 ;} {\cf5 old_customers}{\cf1 :} {\b\cf6 like} {\cf5 customers}{\cf1 )}{\cf1 :} {\cf4 BOOLEAN}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  Are customers other than }`a_name'{\cf3  and a_name2 unchanged?}{\line}
+{\tab}{\tab}{\b\cf6 ensure}{\line}
+{\tab}{\tab}{\tab}{\tab}{\b\cf6 Result} {\cf1 =} {\b\cf6 across}{\line}
+{\tab}{\tab}{\tab}{\tab}{\tab}{\cf5 customers} {\b\cf6 as} c{\line}
+{\tab}{\tab}{\tab}{\tab}{\b\cf6 all}{\line}
+{\tab}{\tab}{\tab}{\tab}{\tab}{\cf5 c}{\b\cf1 .}{\cf5 item}{\b\cf1 .}{\cf5 name} {\cf1 /~} {\b\cf6 create} {\cf1 \{}{\cf4 IMMUTABLE_STRING_8}{\cf1 \}}{\b\cf1 .}{\cf5 make_from_string}{\cf1  }{\cf1 (}{\cf5 a_name1}{\cf1 )} {\b\cf6 and} {\cf5 c}{\b\cf1 .}{\cf5 item}{\b\cf1 .}{\cf5 name} {\cf1 /~} {\b\cf6 create} {\cf1 \{}{\cf4 IMMUTABLE_STRING_8}{\cf1 \}}{\b\cf1 .}{\cf5 make_from_string}{\cf1  }{\cf1 (}{\cf5 a_name2}{\cf1 )} {\b\cf6 implies} {\cf5 old_customers}{\b\cf1 .}{\cf5 has}{\cf1  }{\cf1 (}{\cf5 c}{\b\cf1 .}{\cf5 item}{\cf1 )}{\line}
+{\tab}{\tab}{\tab}{\tab}{\b\cf6 end}{\line}
+}{\tab}{\line}
+{\b\cf6 feature} {\cf3 --}{\cf3  invariant queries}{\line}
+{\line}
+{\tab}{\cf5 {\cf5 unique_customers}{\cf1 :} {\cf4 BOOLEAN}{\line}
+{\tab}{\tab}{\b\cf6 ensure}{\line}
+{\tab}{\tab}{\tab}{\tab}{\b\cf6 Result} {\cf1 =} {\b\cf6 across}{\line}
+{\tab}{\tab}{\tab}{\tab}{\tab}1 {\cf1 |..|} {\cf5 count} {\b\cf6 as} i{\line}
+{\tab}{\tab}{\tab}{\tab}{\b\cf6 all}{\line}
+{\tab}{\tab}{\tab}{\tab}{\tab}{\b\cf6 across}{\line}
+{\tab}{\tab}{\tab}{\tab}{\tab}{\tab}1 {\cf1 |..|} {\cf5 count} {\b\cf6 as} j{\line}
+{\tab}{\tab}{\tab}{\tab}{\tab}{\b\cf6 all}{\line}
+{\tab}{\tab}{\tab}{\tab}{\tab}{\tab}{\cf5 customers} {\cf1 [}{\cf5 i}{\b\cf1 .}{\cf5 item}{\cf1 ]} {\cf1 ~} {\cf5 customers} {\cf1 [}{\cf5 j}{\b\cf1 .}{\cf5 item}{\cf1 ]} {\b\cf6 implies} {\cf5 i}{\b\cf1 .}{\cf5 item} {\cf1 =} {\cf5 j}{\b\cf1 .}{\cf5 item}{\line}
+{\tab}{\tab}{\tab}{\tab}{\tab}{\b\cf6 end}{\line}
+{\tab}{\tab}{\tab}{\tab}{\b\cf6 end}{\line}
+}{\tab}{\line}
+{\b\cf6 feature} {\cf3 --}{\cf3  Queries on string representation.}{\line}
+{\line}
+{\tab}{\cf5 {\cf5 customers_string}{\cf1 :} {\cf4 STRING_8}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3  Return printable state of }{\cf5 customers}{\cf3 .}{\line}
+}{\line}
+{\tab}{\cf5 {\cf5 out}{\cf1 :} {\cf4 STRING_8}{\line}
+{\tab}{\tab}{\tab}{\cf3 --}{\cf3 prints out string representation of each customer's information}{\line}
+}{\line}
+{\tab}{\cf5 {\cf5 comment} {\cf1 (}{\cf5 s}{\cf1 :} {\cf4 STRING_8}{\cf1 )}{\cf1 :} {\cf4 BOOLEAN}{\line}
+}{\tab}{\line}
+{\b\cf6 invariant}{\line}
+{\tab}{\cf1 value_constraints}{\cf1 :} {\cf5 zero} {\cf1 =} {\cf5 zero}{\b\cf1 .}{\cf5 zero} {\b\cf6 and} {\cf5 one} {\cf1 =} {\cf5 one}{\b\cf1 .}{\cf5 one}{\line}
+{\tab}{\cf1 consistent_count}{\cf1 :} {\cf5 count} {\cf1 =} {\cf5 customers}{\b\cf1 .}{\cf5 count}{\line}
+{\tab}{\cf1 consistent_total}{\cf1 :} {\cf5 total} {\cf1 =} {\cf5 sum_of_all_balances}{\line}
+{\tab}{\cf1 customer_names_unique}{\cf1 :} {\cf5 unique_customers}{\line}
+{\tab}{\tab}{\cf5 comment}{\cf1  }{\cf1 (}"Need some invariant here"{\cf1 )}{\line}
+{\tab}{\cf1 customers_are_sorted}{\cf1 :} {\b\cf6 across}{\line}
+{\tab}{\tab}{\tab}1 {\cf1 |..|} {\cf1 (}{\cf5 count} {\cf1 -} 1{\cf1 )} {\b\cf6 as} i{\line}
+{\tab}{\tab}{\b\cf6 all}{\line}
+{\tab}{\tab}{\tab}{\cf5 customers} {\cf1 [}{\cf5 i}{\b\cf1 .}{\cf5 item}{\cf1 ]}{\b\cf1 .}{\cf5 name}{\b\cf1 .}{\cf5 is_less}{\cf1  }{\cf1 (}{\cf5 customers} {\cf1 [}{\cf1 (}{\cf5 i}{\b\cf1 .}{\cf5 item}{\cf1 )} {\cf1 +} 1{\cf1 ]}{\b\cf1 .}{\cf5 name}{\cf1 )}{\line}
+{\tab}{\tab}{\b\cf6 end}{\line}
+{\tab}{\tab}{\cf5 comment}{\cf1  }{\cf1 (}"Need some invariant here"{\cf1 )}{\line}
+{\line}
+{\b\cf6 end} {\cf3 --} {\cf3 class }{\cf4 BANK}}
+{\line}
+{\cf3 {\tab}{\tab}{\tab}-- Generated by ISE Eiffel --}
+{\line}
+{\cf3{\tab}{\tab}{\tab}-- For more details: http://www.eiffel.com --}
+}}
+{\line}

@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 15.12.9.8308 GPL Edition - linux-x86-64">
+<meta name="description" content="Corrected student version of WORD_ANALYZER"/>
+<meta name="author" content="Michael Williams"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>word_analyzer_student Text</TITLE>
+<LINK REL="stylesheet" HREF="../default.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="word_analyzer_student_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="word_analyzer_student_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="word_analyzer_student"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Corrected student version of WORD_ANALYZER&quot;</SPAN>
+	<SPAN CLASS="eitag">author</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Michael Williams&quot;</SPAN>
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Date$&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Revision$&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> 
+	<A CLASS="eclass" HREF="../model/word_analyzer_student.html">WORD_ANALYZER_STUDENT</A>
+
+<SPAN CLASS="ekeyword">inherit</SPAN>
+	<A CLASS="eclass" HREF="../model/word_analyzer_interface.html">WORD_ANALYZER_INTERFACE</A>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_make">make</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> commands</SPAN>
+
+	<A NAME="f_first_repeated_character"></A><A CLASS="efeature" HREF="../model/word_analyzer_student.html#f_first_repeated_character">first_repeated_character</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/character_8.html">CHARACTER_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> returns first repeated character or null character if none found</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> a character is repeated if it occurs at least twice in adjacent positions</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> e.g. 'l' is repeated in &quot;hollow&quot;, but 'o' is not.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">ch</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/character_8.html">CHARACTER_8</A>
+			<SPAN CLASS="elocal">stop</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">1</SPAN>
+				<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="echar">'%U'</SPAN>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted">or</A> <SPAN CLASS="elocal">stop</SPAN>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="elocal">ch</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_item">[</A><SPAN CLASS="elocal">i</SPAN><A CLASS="esymbol" HREF="../elks/string_8.html#f_item">]</A>
+				<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">ch</SPAN> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_item">[</A><SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN><A CLASS="esymbol" HREF="../elks/string_8.html#f_item">]</A> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">ch</SPAN>
+					<SPAN CLASS="elocal">stop</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_first_multiple_character"></A><A CLASS="efeature" HREF="../model/word_analyzer_student.html#f_first_multiple_character">first_multiple_character</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/character_8.html">CHARACTER_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Returns first multiply occuring character, or null if not found.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> A character is multiple if it occurs twice in a word,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> not neceassarily in adajacent positions.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> E.g. both 'o' and 'l' are multiple in &quot;hollow&quot;, but 'h' is not.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">ch</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/character_8.html">CHARACTER_8</A>
+			<SPAN CLASS="elocal">stop</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">1</SPAN>
+				<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="echar">'%U'</SPAN>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted">or</A> <SPAN CLASS="elocal">stop</SPAN>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="elocal">ch</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_item">[</A><SPAN CLASS="elocal">i</SPAN><A CLASS="esymbol" HREF="../elks/string_8.html#f_item">]</A>
+				<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../model/word_analyzer_student.html#f_find">find</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">ch</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">)</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <SPAN CLASS="enumber">0</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">ch</SPAN>
+					<SPAN CLASS="elocal">stop</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_count_repeated_characters"></A><A CLASS="efeature" HREF="../model/word_analyzer_student.html#f_count_repeated_characters">count_repeated_characters</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> counts groups of repeated characters.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> e.g., 'mississippi!!!' has 4 groups: ss, ss, pp and !!!.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> returns the number of such character groups</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">j</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">nr</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">1</SPAN>
+				<SPAN CLASS="elocal">nr</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_item">[</A><SPAN CLASS="elocal">i</SPAN><A CLASS="esymbol" HREF="../elks/string_8.html#f_item">]</A> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_item">[</A><SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN><A CLASS="esymbol" HREF="../elks/string_8.html#f_item">]</A> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="elocal">nr</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">nr</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN>
+					<SPAN CLASS="ekeyword">from</SPAN>
+						<SPAN CLASS="elocal">j</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">2</SPAN>
+					<SPAN CLASS="ekeyword">until</SPAN>
+						<SPAN CLASS="elocal">j</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted">or</A> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_item">[</A><SPAN CLASS="elocal">j</SPAN><A CLASS="esymbol" HREF="../elks/string_8.html#f_item">]</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_item">[</A><SPAN CLASS="elocal">i</SPAN><A CLASS="esymbol" HREF="../elks/string_8.html#f_item">]</A>
+					<SPAN CLASS="ekeyword">loop</SPAN>
+						<SPAN CLASS="elocal">j</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">j</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN>
+					<SPAN CLASS="ekeyword">end</SPAN>
+					<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">j</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_minus">-</A> <SPAN CLASS="enumber">1</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">nr</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> utilities</SPAN>
+
+	<A NAME="f_find"></A><A CLASS="efeature" HREF="../model/word_analyzer_student.html#f_find">find</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">c</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/character_8.html">CHARACTER_8</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">position</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> returns index of 'c' in word</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> in range position..word.count</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">The find utility searches through word's characters, starting at position + 1 until it finds character c or reaches the end of the word.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">if the character is found, the index of the first found instance is returned</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">if no character is found, the value 0 is returned</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">ex) in the word water, given c=w and position = 1, the value 0 is returned because w is never found from starting point position + 1 to the end of the word.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">correct_position</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">position</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater_equal">&gt;=</A> <SPAN CLASS="enumber">1</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_conjuncted">and</A> <SPAN CLASS="elocal">position</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_less_equal">&lt;=</A> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">stop</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">position</SPAN>
+				<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted">or</A> <SPAN CLASS="elocal">stop</SPAN>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">c</SPAN> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_item">[</A><SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN><A CLASS="esymbol" HREF="../elks/string_8.html#f_item">]</A> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN>
+					<SPAN CLASS="elocal">stop</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">test1</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="enumber">0</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted">or</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="ekeyword">Result</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <SPAN CLASS="elocal">position</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_conjuncted">and</A> <SPAN CLASS="ekeyword">Result</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_less_equal">&lt;=</A> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="etag">test2</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="ekeyword">across</SPAN>
+					<SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">position</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN><SPAN CLASS="esymbol">)</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32_ref.html#f_interval">|..|</A> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A> <SPAN CLASS="ekeyword">as</SPAN> ch
+				<SPAN CLASS="ekeyword">all</SPAN>
+					<A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_item">[</A><SPAN CLASS="elocal">ch</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/indexable_iteration_cursor.html#f_item">item</A><A CLASS="esymbol" HREF="../elks/string_8.html#f_item">]</A> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="elocal">c</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="etag">test3</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="ekeyword">across</SPAN>
+					<SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">position</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN><SPAN CLASS="esymbol">)</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32_ref.html#f_interval">|..|</A> <A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A> <SPAN CLASS="ekeyword">as</SPAN> ch
+				<SPAN CLASS="ekeyword">some</SPAN>
+					<A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_word">word</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_item">[</A><SPAN CLASS="elocal">ch</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/indexable_iteration_cursor.html#f_item">item</A><A CLASS="esymbol" HREF="../elks/string_8.html#f_item">]</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">c</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../model/word_analyzer_student.html">WORD_ANALYZER_STUDENT</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="word_analyzer_student_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="word_analyzer_student_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="word_analyzer_student"></TD>
+</TR></TABLE></FORM></pre>
+<P ALIGN="CENTER"> &#045;&#045; Generated by ISE Eiffel &#045;&#045; 
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

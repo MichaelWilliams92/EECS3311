@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 15.12.9.8308 GPL Edition - linux-x86-64">
+<meta name="description" content="Instructor tests."/>
+<meta name="author" content="JSO"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>instructor_tests Text</TITLE>
+<LINK REL="stylesheet" HREF="../default.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="instructor_tests_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="instructor_tests_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="instructor_tests"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><SPAN CLASS="estring">[</SPAN>
+		<SPAN CLASS="estring">Instructor tests.</SPAN>
+	<SPAN CLASS="estring">]</SPAN><SPAN CLASS="estring">&quot;</SPAN>
+	<SPAN CLASS="eitag">author</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;JSO&quot;</SPAN>
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Date$&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Revision$&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> 
+	<A CLASS="eclass" HREF="../tests/instructor_tests.html">INSTRUCTOR_TESTS</A>
+
+<SPAN CLASS="ekeyword">inherit</SPAN>
+	<A CLASS="eclass" HREF="../espec/es_test.html">ES_TEST</A>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<A CLASS="efeature" HREF="../tests/instructor_tests.html#f_make">make</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="esymbol">{</SPAN>NONE<SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Initialization</SPAN>
+
+	<A NAME="f_make"></A><A CLASS="efeature" HREF="../tests/instructor_tests.html#f_make">make</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">exercise version</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> run succesful tests; skip tests that fail</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_test.html#f_add_boolean_case">add_boolean_case</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="ekeyword">agent</SPAN> <A CLASS="efeature" HREF="../tests/instructor_tests.html#f_t_frc1">t_frc1</A><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_test.html#f_add_boolean_case">add_boolean_case</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="ekeyword">agent</SPAN> <A CLASS="efeature" HREF="../tests/instructor_tests.html#f_t_fmc1">t_fmc1</A><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_test.html#f_add_boolean_case">add_boolean_case</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="ekeyword">agent</SPAN> <A CLASS="efeature" HREF="../tests/instructor_tests.html#f_t_crc1">t_crc1</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> tests first repeated character</SPAN>
+
+	<A NAME="f_t_frc1"></A><A CLASS="efeature" HREF="../tests/instructor_tests.html#f_t_frc1">t_frc1</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> succeeds in bad analyzer</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">wa</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../model/word_analyzer_interface.html">WORD_ANALYZER_INTERFACE</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_test.html#f_comment">comment</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;t_frc1: first repeated character for 'hollow' is 'l'&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../model/word_analyzer_bad.html">WORD_ANALYZER_BAD</A><SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="elocal">wa</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;hollow&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">wa</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_first_repeated_character">first_repeated_character</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="echar">'l'</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_test.html#f_assert">assert</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;'o' is not repeated&quot;<SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">wa</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_first_repeated_character">first_repeated_character</A> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="echar">'o'</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">wa</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_first_repeated_character">first_repeated_character</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> tests first multiple character</SPAN>
+
+	<A NAME="f_t_fmc1"></A><A CLASS="efeature" HREF="../tests/instructor_tests.html#f_t_fmc1">t_fmc1</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">wa</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../model/word_analyzer_interface.html">WORD_ANALYZER_INTERFACE</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_test.html#f_comment">comment</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;t_fmc1: first multiple character in 'bob' is 'b'&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../model/word_analyzer_bad.html">WORD_ANALYZER_BAD</A><SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="elocal">wa</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;bob&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">wa</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_first_multiple_character">first_multiple_character</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="echar">'b'</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> test count repeated characters</SPAN>
+
+	<A NAME="f_t_crc1"></A><A CLASS="efeature" HREF="../tests/instructor_tests.html#f_t_crc1">t_crc1</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">wa</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../model/word_analyzer_interface.html">WORD_ANALYZER_INTERFACE</A>
+			<SPAN CLASS="elocal">nr</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_test.html#f_comment">comment</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;t_crc1: test count_repeated_character&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_test.html#f_sub_comment">sub_comment</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;'mississippi!!!' has 4 groups: ss, ss, pp and !!!.&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../model/word_analyzer_bad.html">WORD_ANALYZER_BAD</A><SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="elocal">wa</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;mississippi!!!&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="elocal">nr</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">wa</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../model/word_analyzer_interface.html#f_count_repeated_characters">count_repeated_characters</A>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">nr</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="enumber">4</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../tests/instructor_tests.html">INSTRUCTOR_TESTS</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="instructor_tests_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="instructor_tests_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="instructor_tests"></TD>
+</TR></TABLE></FORM></pre>
+<P ALIGN="CENTER"> &#045;&#045; Generated by ISE Eiffel &#045;&#045; 
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 15.12.9.8308 GPL Edition - linux-x86-64">
+<meta name="description" content="Objects that represent boolean test cases (pass/fail)"/>
+<meta name="author" content="Software Engineering Lab, York University"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>es_boolean_test_case Text</TITLE>
+<LINK REL="stylesheet" HREF="../default.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_boolean_test_case_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_boolean_test_case_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="es_boolean_test_case"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Objects that represent boolean test cases (pass/fail)&quot;</SPAN>
+	<SPAN CLASS="eitag">author</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Software Engineering Lab, York University&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> 
+	<A CLASS="eclass" HREF="../espec/es_boolean_test_case.html">ES_BOOLEAN_TEST_CASE</A>
+
+<SPAN CLASS="ekeyword">inherit</SPAN>
+	<A CLASS="eclass" HREF="../espec/es_test_case.html">ES_TEST_CASE</A>
+		<SPAN CLASS="ekeyword">redefine</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_boolean_test_case.html#f_case">case</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<A CLASS="efeature" HREF="../espec/es_boolean_test_case.html#f_make">make</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Initialization</SPAN>
+
+	<A NAME="f_make"></A><A CLASS="efeature" HREF="../espec/es_boolean_test_case.html#f_make">make</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">name</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">c</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/predicate.html">PREDICATE</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Create Current</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_boolean_test_case.html#f_case">case</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">c</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_test_case.html#f_case_name">case_name</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">name</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_test_case.html#f_violation_tag">violation_tag</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;&quot;
+			<A CLASS="efeature" HREF="../espec/es_test_case.html#f_bookmark_name">bookmark_name</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;&quot;
+		<SPAN CLASS="ekeyword">ensure then</SPAN>
+			<SPAN CLASS="etag">make_post_case</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../espec/es_boolean_test_case.html#f_case">case</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">c</SPAN>
+			<SPAN CLASS="etag">make_post_case_name</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../espec/es_test_case.html#f_case_name">case_name</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">name</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Basic Op</SPAN>
+
+	<A NAME="f_run"></A><A CLASS="efeature" HREF="../espec/es_boolean_test_case.html#f_run">run</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Run case test</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">error</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_negated">not</A> <SPAN CLASS="elocal">error</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">check</SPAN>
+						<SPAN CLASS="ekeyword">attached</SPAN> <A CLASS="efeature" HREF="../espec/es_boolean_test_case.html#f_case">case</A> <SPAN CLASS="ekeyword">as</SPAN> c
+				<SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">c</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/function.html#f_item">item</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="esymbol">[</SPAN><SPAN CLASS="esymbol">]</SPAN><SPAN CLASS="esymbol">)</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+						<A CLASS="efeature" HREF="../espec/es_test_case.html#f_passed">passed</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+					<SPAN CLASS="ekeyword">end</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">rescue</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_test_case.html#f_contract_violated">contract_violated</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">check</SPAN>
+					<SPAN CLASS="ekeyword">attached</SPAN> <A CLASS="efeature" HREF="../elks/exceptions.html#f_exception_trace">exception_trace</A> <SPAN CLASS="ekeyword">as</SPAN> et
+			<SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../espec/es_test_case.html#f_violation_tag">violation_tag</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">et</SPAN><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/any.html#f_twin">twin</A>
+				<A CLASS="efeature" HREF="../espec/es_test_case.html#f_violation_type">violation_type</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/exceptions.html#f_exception">exception</A>
+				<SPAN CLASS="elocal">error</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+				<SPAN CLASS="ekeyword">retry</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_violation_case"></A><A CLASS="efeature" HREF="../espec/es_boolean_test_case.html#f_is_violation_case">is_violation_case</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> is this a violation test case of a boolean test case</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="esymbol">{</SPAN>NONE<SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Implementation</SPAN>
+
+	<A NAME="f_case"></A><A CLASS="efeature" HREF="../espec/es_boolean_test_case.html#f_case">case</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/predicate.html">PREDICATE</A>
+	
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../espec/es_boolean_test_case.html">ES_BOOLEAN_TEST_CASE</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_boolean_test_case_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_boolean_test_case_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="es_boolean_test_case"></TD>
+</TR></TABLE></FORM></pre>
+<P ALIGN="CENTER"> &#045;&#045; Generated by ISE Eiffel &#045;&#045; 
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

@@ -1,0 +1,190 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 15.12.9.8308 GPL Edition - linux-x86-64">
+<meta name="description" content="Objects that represent bunch of ES_TESTs (unit tests)"/>
+<meta name="author" content="Software Engineering Lab, York University"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>es_suite Text</TITLE>
+<LINK REL="stylesheet" HREF="../default.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_suite_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_suite_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="es_suite"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Objects that represent bunch of ES_TESTs (unit tests)&quot;</SPAN>
+	<SPAN CLASS="eitag">author</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Software Engineering Lab, York University&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> 
+	<A CLASS="eclass" HREF="../espec/es_suite.html">ES_SUITE</A>
+
+<SPAN CLASS="ekeyword">inherit</SPAN>
+	<A CLASS="eclass" HREF="../espec/es_testable.html">ES_TESTABLE</A>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<A CLASS="efeature" HREF="../elks/any.html#f_default_create">default_create</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Basic Operations</SPAN>
+
+	<A NAME="f_add_test"></A><A CLASS="efeature" HREF="../espec/es_suite.html#f_add_test">add_test</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">unit_test_class</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../espec/es_test.html">ES_TEST</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Adds class level test </SPAN>`unit_test_class'<SPAN CLASS="ecomment"> to Current test suite</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> use this feature to add your unit test classes to the suite</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">unit_tests_class_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">unit_test_class</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../espec/es_suite.html#f_classes">classes</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">create</SPAN> <A CLASS="efeature" HREF="../espec/es_suite.html#f_classes">classes</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_make">make</A>
+				<A CLASS="efeature" HREF="../espec/es_suite.html#f_name">name</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/any.html#f_generating_type">generating_type</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/type.html#f_name">name</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/any.html#f_twin">twin</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_general.html#f_as_string_8">as_string_8</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="ekeyword">attached</SPAN> <A CLASS="efeature" HREF="../espec/es_suite.html#f_classes">classes</A> <SPAN CLASS="ekeyword">as</SPAN> classes1 <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="elocal">classes1</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_extend">extend</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">unit_test_class</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_add_suite"></A><A CLASS="efeature" HREF="../espec/es_suite.html#f_add_suite">add_suite</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">suite_test_class</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../espec/es_suite.html">ES_SUITE</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Adds a suite of tests to the current suite</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">suite_test_class_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">suite_test_class</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="ekeyword">attached</SPAN> <SPAN CLASS="elocal">suite_test_class</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../espec/es_suite.html#f_classes">classes</A> <SPAN CLASS="ekeyword">as</SPAN> c <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">from</SPAN>
+					<SPAN CLASS="elocal">c</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_start">start</A>
+				<SPAN CLASS="ekeyword">until</SPAN>
+					<SPAN CLASS="elocal">c</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_after">after</A>
+				<SPAN CLASS="ekeyword">loop</SPAN>
+					<A CLASS="efeature" HREF="../espec/es_suite.html#f_add_test">add_test</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">c</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_item">item</A><SPAN CLASS="esymbol">)</SPAN>
+					<SPAN CLASS="elocal">c</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_forth">forth</A>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../espec/es_test.html">ES_TEST</A><SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Implementation</SPAN>
+
+	<A NAME="f_to_html"></A><A CLASS="efeature" HREF="../espec/es_suite.html#f_to_html">to_html</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">output_file_name</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> generate HTML report with details</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">output_file_name_valid</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">output_file_name</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">gen</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../espec/es_html_gen_suite.html">ES_HTML_GEN_SUITE</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">check</SPAN>
+					<SPAN CLASS="ekeyword">attached</SPAN> <A CLASS="efeature" HREF="../espec/es_suite.html#f_classes">classes</A> <SPAN CLASS="ekeyword">as</SPAN> cl
+			<SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">check</SPAN>
+						<SPAN CLASS="ekeyword">attached</SPAN> <A CLASS="efeature" HREF="../espec/es_suite.html#f_name">name</A> <SPAN CLASS="ekeyword">as</SPAN> n
+				<SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">gen</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../espec/es_html_gen_suite.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">n</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">output_file_name</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">cl</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_show_err">show_err</A><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_run_es_test"></A><A CLASS="efeature" HREF="../espec/es_suite.html#f_run_es_test">run_es_test</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> run es-test in suite mode</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="ekeyword">attached</SPAN> <A CLASS="efeature" HREF="../espec/es_suite.html#f_classes">classes</A> <SPAN CLASS="ekeyword">as</SPAN> classes1 <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../espec/es_testable.html#f_number_of_tests">number_of_tests</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+				<A CLASS="efeature" HREF="../espec/es_testable.html#f_number_passed_tests">number_passed_tests</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+				<SPAN CLASS="ekeyword">from</SPAN>
+					<SPAN CLASS="elocal">classes1</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_start">start</A>
+				<SPAN CLASS="ekeyword">until</SPAN>
+					<SPAN CLASS="elocal">classes1</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_after">after</A>
+				<SPAN CLASS="ekeyword">loop</SPAN>
+					<SPAN CLASS="ekeyword">check</SPAN>
+							<SPAN CLASS="ekeyword">attached</SPAN> <SPAN CLASS="elocal">classes1</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_item">item</A> <SPAN CLASS="ekeyword">as</SPAN> item1
+					<SPAN CLASS="ekeyword">then</SPAN>
+						<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_show_err">show_err</A> <SPAN CLASS="ekeyword">then</SPAN>
+							<SPAN CLASS="elocal">item1</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../espec/es_testable.html#f_set_error_report">set_error_report</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../espec/es_testable.html#f_show_err">show_err</A><SPAN CLASS="esymbol">)</SPAN>
+						<SPAN CLASS="ekeyword">end</SPAN>
+						<SPAN CLASS="elocal">item1</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../espec/es_test.html#f_run_es_test">run_es_test</A>
+						<A CLASS="efeature" HREF="../espec/es_testable.html#f_number_of_tests">number_of_tests</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_number_of_tests">number_of_tests</A> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="elocal">item1</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../espec/es_testable.html#f_number_of_tests">number_of_tests</A>
+						<A CLASS="efeature" HREF="../espec/es_testable.html#f_number_passed_tests">number_passed_tests</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_number_passed_tests">number_passed_tests</A> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="elocal">item1</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../espec/es_testable.html#f_number_passed_tests">number_passed_tests</A>
+						<SPAN CLASS="elocal">classes1</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_forth">forth</A>
+					<SPAN CLASS="ekeyword">end</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+				<A CLASS="efeature" HREF="../espec/es_suite.html#f_to_html">to_html</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../espec/es_testable.html#f_get_html_name">get_html_name</A><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../espec/es_testable.html#f_check_browser">check_browser</A>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../espec/es_testable.html#f_print_to_screen">print_to_screen</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;Error: No test cases added%N&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_passed_cases"></A><A CLASS="efeature" HREF="../espec/es_suite.html#f_passed_cases">passed_cases</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/list.html">LIST</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">]</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> list of the name of all the successful test cases</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../elks/arrayed_list.html">ARRAYED_LIST</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">]</SPAN><SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ekeyword">Result</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/arrayed_list.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">10</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="ekeyword">attached</SPAN> <A CLASS="efeature" HREF="../espec/es_suite.html#f_classes">classes</A> <SPAN CLASS="ekeyword">as</SPAN> classes1 <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">across</SPAN>
+					<SPAN CLASS="elocal">classes1</SPAN> <SPAN CLASS="ekeyword">as</SPAN> it
+				<SPAN CLASS="ekeyword">loop</SPAN>
+					<SPAN CLASS="ekeyword">Result</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/chain.html#f_append">append</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">it</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list_iteration_cursor.html#f_item">item</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../espec/es_test.html#f_passed_cases">passed_cases</A><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_failed_cases"></A><A CLASS="efeature" HREF="../espec/es_suite.html#f_failed_cases">failed_cases</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/list.html">LIST</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">]</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> list of the name of all the failed test cases</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../elks/arrayed_list.html">ARRAYED_LIST</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">]</SPAN><SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ekeyword">Result</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/arrayed_list.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">10</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="ekeyword">attached</SPAN> <A CLASS="efeature" HREF="../espec/es_suite.html#f_classes">classes</A> <SPAN CLASS="ekeyword">as</SPAN> classes1 <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">across</SPAN>
+					<SPAN CLASS="elocal">classes1</SPAN> <SPAN CLASS="ekeyword">as</SPAN> it
+				<SPAN CLASS="ekeyword">loop</SPAN>
+					<SPAN CLASS="ekeyword">Result</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/chain.html#f_append">append</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">it</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list_iteration_cursor.html#f_item">item</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../espec/es_test.html#f_failed_cases">failed_cases</A><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_make_test"></A><A CLASS="efeature" HREF="../espec/es_suite.html#f_make_test">make_test</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Initialize Current</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_show_err">show_err</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">v</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_suite.html#f_name">name</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;default_name&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_count"></A><A CLASS="efeature" HREF="../espec/es_suite.html#f_count">count</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> number of tests in </SPAN>`Current'
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">check</SPAN>
+					<SPAN CLASS="ekeyword">attached</SPAN> <A CLASS="efeature" HREF="../espec/es_suite.html#f_classes">classes</A> <SPAN CLASS="ekeyword">as</SPAN> classes1
+			<SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">classes1</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_count">count</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_pass_values"></A><A CLASS="efeature" HREF="../espec/es_suite.html#f_pass_values">pass_values</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">e</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">b</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">n</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../espec/es_suite.html#f_name">name</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_show_err">show_err</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">e</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_browser">browser</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">b</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_suite.html#f_name">name</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">n</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../espec/es_suite.html">ES_SUITE</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="eclass" HREF="../espec/es_suite.html">ES_SUITE</A><SPAN CLASS="esymbol">}</SPAN> 
+
+	<A NAME="f_name"></A><A CLASS="efeature" HREF="../espec/es_suite.html#f_name">name</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">detachable</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A>
+
+	<A NAME="f_classes"></A><A CLASS="efeature" HREF="../espec/es_suite.html#f_classes">classes</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">detachable</SPAN> <A CLASS="eclass" HREF="../elks/linked_list.html">LINKED_LIST</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../espec/es_test.html">ES_TEST</A><SPAN CLASS="esymbol">]</SPAN>
+	
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../espec/es_suite.html">ES_SUITE</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_suite_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_suite_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="es_suite"></TD>
+</TR></TABLE></FORM></pre>
+<P ALIGN="CENTER"> &#045;&#045; Generated by ISE Eiffel &#045;&#045; 
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

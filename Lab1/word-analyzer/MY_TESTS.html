@@ -1,0 +1,131 @@
+<html>
+<head>
+<base target="main">
+</head>
+<body>
+<p align="center"><b>Test Run:01/13/2016   7:15:58.624 PM</b></p><font color="blue"><H2  align="center">MY_TESTS</H2></font><p align="center">Note: * indicates a violation test case</p>
+<table border=1 align="center">
+<tr><td bgcolor="#00FF00" colspan="3">&nbsp;</td></tr><tr><td align="center" colspan="3">PASSED (27 out of 27)</td></tr>
+<tr><td align="center" bgcolor="#000080"><font color="#FFCC00"><b>Case Type</b></font></td>
+<td align="center" bgcolor="#000080"><font color="#FFCC00"><b>Passed</b></font></td>
+<td align="center" bgcolor="#000080"><font color="#FFCC00"><b>Total</b></font></td></tr>
+<tr><td align="center"><font color="blue"><b>Violation</b></font></td>
+<td align="center">0</td><td align="center">0</td></tr>
+<tr><td align="center"><font color="blue"><b>Boolean</b></font></td>
+<td align="center">27</td><td align="center">27</td></tr>
+<tr><td align="center"><font color="blue"><b>All Cases</b></font></td>
+<td align="center">27</td><td align="center">27</td></tr>
+<tr><td align="center" bgcolor="#000080"><font color="#FFCC00"><b>State</b></font></td>
+<td align="center" bgcolor="#000080"><font color="#FFCC00"><b>Contract Violation</b></font></td>
+<td align="center" bgcolor="#000080"><font color="#FFCC00"><b>Test Name</b></font></td></tr>
+<tr><td bgcolor="#008080" align="center"><font color="#FFCC00"><b>Test1</b></font></td>
+<td bgcolor="#008080" align="center" colspan="2"><font color="#FFCC00">MY_TESTS</font></td></tr><tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t1: first repeated character for 'hollow' is l. ensures first repeated character is found in middle <br>of word </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t2: first repeated character for 'hholow' is h. ensures repeated character is found if at start of <br>word </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t3: first repeated character for 'holoww' is w. ensures repeated character is found if at end of <br>word </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t4: first repeated character for 'caoolhlloww' is o. ensures first repeated character is found when <br>more than 1 exists </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t5: first repeated character for '19273/..=4-5=' is '.'.  Ensures correct character is found when <br>using symbols </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t6: No repeated character is found in 'I'. returns null character when using a 1 character string</td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t7: No repeated character is found in 'candy'. returns null character when no match is found in a <br>regular string </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t8: No repeated character is found in '*&@^19273/.'. returns null character when no match is found <br>in a string of numbers or special symbols </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t9: No repeated character is found with an empty string so null character is returned</td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t10: first multiple character for 'hollow' is o. ensures multiple character is found if in middle <br>of word </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t11: first multiple character for 'hhouse' is h. ensures multiple character is found if at <br>beginning of word </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t12: first multiple character for 'horsee' is e. ensures multiple character is found if at the end <br>of word </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t13: first multiple character for 'erf821sd13^#1)' is 1. ensures multiple character is found even <br>when using symbols </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t14: first multiple character for 'ee' is e. ensures multiple character is found when only 2 <br>matching characters exist </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t15: no multiple character for 'e'. ensures null is returned when a string of length 1 is given</td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t16: no multiple character for ''. ensures null is returned when given an empty string</td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t17: no multiple character for 'abcde'. ensures null is returned when no matching character exists</td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t18: no multiple character for 'a26b$#cd(/e'. ensures null is returned when no matching character <br>exists </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t19: the string 'hhorrsee' has 3 groups, 'hh', 'rr' and 'ee'.  Ensures multiple character groups <br>are picked up at the beginning, middle and end of the string  </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t20: the string 'hhhorrrseee' has 3 groups, 'hhh', 'rrr' and 'eee'.  Ensures multiple character <br>groups are picked up at the beginning, middle and end of the string  </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t21: the string 'hhhorrseee!!' has 4 groups, 'hhhh', 'rr', 'eee' and '!!'.  Ensures multiple <br>character groups are picked up at the beginning, middle and end of the string  </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t22: the string '11123/////4**' has 3 groups, '111', '/////' and '**'.  Ensures multiple character <br>groups are picked up at the beginning, middle and end of the string, when comprised of special <br>symbols  </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t23: the string 'hhhh'.  Ensures multiple character groups are picked up when the only group is the <br>entire string itself </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t24: the string 'a' returns 0.  This ensures that with only 1 character, no groups are counted</td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t25: the string '' returns 0.  This ensures no groups are recorded with an empty string</td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t26: the string 'abcde' returns 0.  This ensures that nothing is counted when there are no repeated <br>groups of characters </td>
+</tr>
+<tr><td><font color="green"><b>PASSED</b></font></td>
+<td align="center">NONE</td>
+<td>t27: the string '213$*^-+' returns 0.  This ensures that nothing is counted when there are no <br>repeated groups of characters when comprise of special symbols </td>
+</tr>
+</table></body>
+</html>

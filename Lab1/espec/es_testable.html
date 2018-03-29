@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 15.12.9.8308 GPL Edition - linux-x86-64">
+<meta name="description" content="Providing shared features for ES_TEST and ES_TEST_SUITE classes"/>
+<meta name="author" content="Software Engineering Lab (York University)"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>es_testable Text</TITLE>
+<LINK REL="stylesheet" HREF="../default.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_testable_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_testable_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="es_testable"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Providing shared features for ES_TEST and ES_TEST_SUITE classes&quot;</SPAN>
+	<SPAN CLASS="eitag">author</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Software Engineering Lab (York University)&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">deferred</SPAN> <SPAN CLASS="ekeyword">class</SPAN> 
+	<A CLASS="eclass" HREF="../espec/es_testable.html">ES_TESTABLE</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> 
+
+	<A NAME="f_run_espec"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_run_espec">run_espec</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> new feature instead of run_all</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">problem</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_negated">not</A> <SPAN CLASS="elocal">problem</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../espec/es_testable.html#f_run_es_test">run_es_test</A>
+				<A CLASS="efeature" HREF="../espec/es_testable.html#f_print_console_report">print_console_report</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">rescue</SPAN>
+			<SPAN CLASS="elocal">problem</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_print_to_screen">print_to_screen</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;Error: No test cases found, Please add ES_TEST classes to the class that inherits from ES_SUITE%N&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">retry</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_show_errors"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_show_errors">show_errors</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> print error traces to the output</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_show_err">show_err</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_show_browser"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_show_browser">show_browser</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">shows the default browser</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_browser">browser</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_set_html_name"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_set_html_name">set_html_name</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">s</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> set the output html name</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_default_html_name">default_html_name</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">s</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> 
+
+	<A NAME="f_set_error_report"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_set_error_report">set_error_report</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> show the contract violations if set to true</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_show_err">show_err</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">v</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_run_es_test"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_run_es_test">run_es_test</A>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_curr_os_dir_separator"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_curr_os_dir_separator">curr_os_dir_separator</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/character_8.html">CHARACTER_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> &nbsp;return path separator for current OS</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="ekeyword">create</SPAN><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../elks/operating_environment.html">OPERATING_ENVIRONMENT</A><SPAN CLASS="esymbol">}</SPAN><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/operating_environment.html#f_directory_separator">Directory_separator</A>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">separator_is_a_slash</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="echar">'/'</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted">or</A> <SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="echar">'\'</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_print_to_screen"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_print_to_screen">print_to_screen</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">message</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> prints the message to the screen, handles both GUI and standard output</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_safe_put_string">safe_put_string</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">message</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_safe_put_string"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_safe_put_string">safe_put_string</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">message</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> socket.putstring with exception handling</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/any.html#f_print">print</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">message</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_check_browser"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_check_browser">check_browser</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> run the browser on the generated HTML</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">env</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/execution_environment.html">EXECUTION_ENVIRONMENT</A>
+			<SPAN CLASS="elocal">command</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">env</SPAN>
+			<SPAN CLASS="ekeyword">check</SPAN>
+					<SPAN CLASS="ekeyword">attached</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_get_html_name">get_html_name</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_browser">browser</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../elks/platform.html">PLATFORM</A><SPAN CLASS="esymbol">}</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/platform.html#f_is_windows">is_windows</A> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="elocal">command</SPAN> <SPAN CLASS="esymbol">:=</SPAN> &quot;%&quot;explorer%&quot; &quot; <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> <SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../espec/es_testable.html#f_get_html_name">get_html_name</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/any.html#f_twin">twin</A><SPAN CLASS="esymbol">)</SPAN> <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> &quot;%&quot;&quot;
+					<SPAN CLASS="elocal">env</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/execution_environment.html#f_launch">launch</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">command</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">elseif</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../elks/platform.html">PLATFORM</A><SPAN CLASS="esymbol">}</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/platform.html#f_is_mac">is_mac</A> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="elocal">command</SPAN> <SPAN CLASS="esymbol">:=</SPAN> &quot;open&quot; <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> &quot; '&quot; <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> <A CLASS="efeature" HREF="../espec/es_testable.html#f_get_html_name">get_html_name</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/any.html#f_twin">twin</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> &quot;'&quot;
+					<SPAN CLASS="elocal">env</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/execution_environment.html#f_launch">launch</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">command</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">else</SPAN>
+					<SPAN CLASS="ekeyword">check</SPAN>
+							<SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../elks/platform.html">PLATFORM</A><SPAN CLASS="esymbol">}</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/platform.html#f_is_unix">is_unix</A>
+					<SPAN CLASS="ekeyword">end</SPAN>
+					<SPAN CLASS="elocal">command</SPAN> <SPAN CLASS="esymbol">:=</SPAN> &quot;xdg-open&quot; <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> &quot; '&quot; <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> <A CLASS="efeature" HREF="../espec/es_testable.html#f_get_html_name">get_html_name</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/any.html#f_twin">twin</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> &quot;'&quot;
+					<SPAN CLASS="elocal">env</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/execution_environment.html#f_launch">launch</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">command</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_get_html_name"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_get_html_name">get_html_name</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> return the name of the default html for this unit test</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_default_html_name">default_html_name</A> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">check</SPAN>
+						<SPAN CLASS="ekeyword">attached</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_default_html_name">default_html_name</A> <SPAN CLASS="ekeyword">as</SPAN> d
+				<SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">d</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/any.html#f_twin">twin</A>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/any.html#f_generating_type">generating_type</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/type.html#f_name">name</A> <A CLASS="esymbol" HREF="../elks/immutable_string_8.html#f_plus">+</A> &quot;.html&quot;<SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_general.html#f_as_string_8">as_string_8</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_passed_cases"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_passed_cases">passed_cases</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/list.html">LIST</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">]</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> list of the name of all the successful test cases</SPAN>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_failed_cases"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_failed_cases">failed_cases</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/list.html">LIST</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">]</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> list of the name of all the failed test cases</SPAN>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_print_console_report"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_print_console_report">print_console_report</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> print a summary of all the test case results to the</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> console.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">failed</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/list.html">LIST</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">]</SPAN>
+			<SPAN CLASS="elocal">success</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/list.html">LIST</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">]</SPAN>
+			<SPAN CLASS="elocal">passed</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">total</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">line</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">failed</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_failed_cases">failed_cases</A>
+			<SPAN CLASS="elocal">success</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_passed_cases">passed_cases</A>
+			<SPAN CLASS="elocal">passed</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">success</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/finite.html#f_count">count</A>
+			<SPAN CLASS="elocal">total</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">success</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/finite.html#f_count">count</A> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="elocal">failed</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/finite.html#f_count">count</A>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">line</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_make_filled">make_filled</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="echar">'='</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">60</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../elks/any.html#f_io">Io</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/std_files.html#f_put_string">put_string</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">line</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../elks/any.html#f_io">Io</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/std_files.html#f_put_new_line">put_new_line</A>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_safe_put_string">safe_put_string</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;passing tests%N&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">across</SPAN>
+				<SPAN CLASS="elocal">success</SPAN> <SPAN CLASS="ekeyword">as</SPAN> it
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<A CLASS="efeature" HREF="../espec/es_testable.html#f_safe_put_string">safe_put_string</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;&gt; &quot; <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> <SPAN CLASS="elocal">it</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/indexable_iteration_cursor.html#f_item">item</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> &quot;%N&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_safe_put_string">safe_put_string</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;failing tests%N&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">across</SPAN>
+				<SPAN CLASS="elocal">failed</SPAN> <SPAN CLASS="ekeyword">as</SPAN> it
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<A CLASS="efeature" HREF="../espec/es_testable.html#f_safe_put_string">safe_put_string</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;&gt; &quot; <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> <SPAN CLASS="elocal">it</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/indexable_iteration_cursor.html#f_item">item</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> &quot;%N&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<A CLASS="efeature" HREF="../espec/es_testable.html#f_safe_put_string">safe_put_string</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">passed</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/integer_32_ref.html#f_out">out</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> &quot;/&quot; <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> <SPAN CLASS="elocal">total</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/integer_32_ref.html#f_out">out</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> &quot; passed%N&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_number_of_tests">number_of_tests</A> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../espec/es_testable.html#f_number_passed_tests">number_passed_tests</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../espec/es_testable.html#f_safe_put_string">safe_put_string</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;passed%N&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../espec/es_testable.html#f_safe_put_string">safe_put_string</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN>&quot;failed%N&quot;<SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_default_html_name"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_default_html_name">default_html_name</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">detachable</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A>
+
+	<A NAME="f_number_of_tests"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_number_of_tests">number_of_tests</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+
+	<A NAME="f_number_passed_tests"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_number_passed_tests">number_passed_tests</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+
+	<A NAME="f_show_err"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_show_err">show_err</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+
+	<A NAME="f_browser"></A><A CLASS="efeature" HREF="../espec/es_testable.html#f_browser">browser</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+	
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../espec/es_testable.html">ES_TESTABLE</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_testable_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="es_testable_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="es_testable"></TD>
+</TR></TABLE></FORM></pre>
+<P ALIGN="CENTER"> &#045;&#045; Generated by ISE Eiffel &#045;&#045; 
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

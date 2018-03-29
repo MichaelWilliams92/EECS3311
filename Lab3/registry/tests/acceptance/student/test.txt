@@ -1,0 +1,113 @@
+--first set of tests is made to specifically test The error conditions
+
+--tests error conditions of put method
+
+put(3,"Joe",[15,02,1990])
+put(1,"Pam",[31,03,1991])
+put(4,"Pam",[31,03,1991])
+put(2,"Joe",[15,02,1990])
+
+put(0,"Pam",[31,03,1991])
+put(-6,"Pam",[31,03,1991])
+
+put(2,"Bruce",[10,05,2001])
+
+put(8,"",[10,05,2001])
+put(0,"123Bruce",[10,05,2001])
+put(6,"Bruce123",[10,05,2001])
+
+put(5,"Bruce123",[29,02,2013])
+put(5,"Michael",[29,02,2012])
+put(7,"Andrew",[10,05,2045])
+put(7,"Andrew",[10,03,2016])
+put(7,"Andrew",[15,02,2016])
+
+put(5,"12345",[15,02,2017])
+put(7,"12345",[15,02,2017])
+put(7,"A",[15,02,2017])
+
+--tests error conditions of put_alien
+
+put_alien(14,"Joe",[15,02,1990], "England")
+put_alien(12,"Pam",[31,03,1991], "England")
+put_alien(17,"Pam",[31,03,1991], "England")
+put_alien(15,"Joe",[15,02,1990], "England")
+
+put_alien(0,"Pam",[31,03,1991], "England")
+put_alien(-1,"Joe",[15,02,1990], "England")
+
+put_alien(15,"Joe",[15,02,1990], "England")
+
+put_alien(19,"",[10,05,2001], "England")
+put_alien(19,"123Bruce",[10,05,2001], "USA")
+put_alien(19,"Bruce123",[10,05,2001], "Germany")
+
+put_alien(20,"Charlie",[29,02,2013], "USA")
+put_alien(21,"Alex",[29,02,2012], "Germany")
+put_alien(20,"Andrew",[10,05,2045], "MERICA")
+put_alien(20,"Andrew",[10,03,2016], "YESLAND")
+put_alien(20,"Andrew",[15,02,2016], "CHINA")
+
+put_alien(20,"Charlie",[29,02,2013], "123Hey")
+put_alien(20,"cHARLIE",[29,02,2012], "")
+
+--tests error conditions of marry
+
+marry(0,12,[08, 12, 2010])
+marry(-1,17,[05,07,2011])
+marry(1,-3,[08, 12, 2010])
+marry(2,0,[05,07,2011])
+marry(0,-4,[08, 12, 2010])
+
+marry(31,12,[08, 12, 2010])
+marry(2,55,[05,07,2011])
+marry(53,123,[08, 12, 2010])
+
+marry(1,1,[08, 12, 2010])
+
+marry(1,12,[08, 12, 2054])
+marry(2,17,[05,09,2016])
+marry(2,17,[26,02,2016])
+marry(1,12,[29, 02, 2013])
+
+marry(5,12,[08, 12, 2010])
+marry(1,6,[08, 12, 2010])
+marry(5,6,[08, 12, 2010])
+
+marry(1,12,[08, 12, 2010])
+marry(2,17,[05,07,2011])
+marry(3,4,[29,02,2012])
+marry(14,15,[08, 12, 2010])
+
+--tests for divorce
+divorce(0,4)
+divorce(3,-3)
+
+divorce(23,44)
+divorce(1,44)
+divorce(25,6)
+
+divorce(2,2)
+
+divorce(6,19)
+divorce(5,6)
+divorce(6,5)
+divorce(5,1)
+
+divorce(14,15)
+
+--tests die function
+
+die(0)
+die(-3)
+
+die(29)
+
+die(12)
+die(14)
+
+die(12)
+die(14)
+
+
+

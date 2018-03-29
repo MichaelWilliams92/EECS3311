@@ -1,0 +1,19 @@
+--continuation of test.txt
+--we start by ensuring that marry function marries two residents
+
+--put(2,"Joe",[15,02,1990], "ENGLAND"), will create an error, try 
+put(2,"Joe",[15,02,1990]) 
+put(1,"Pam",[31,03,1991])
+--put_alien(3,"Joe",[15,02,1990], "England")
+--put_alien(4,"Pam",[31,03,1991], "USA")
+
+marry(1,2,[08, 12, 2010])
+--marry(1,2,[18, 12, 2010])
+--marry(2,17,[05,07,2011])
+--marry(3,4,[29,02,2012])
+--marry(14,15,[08, 12, 2010])
+
+
+--divorce(3,4)
+--die(1)
+--die(2)
